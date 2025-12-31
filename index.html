@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year 2026 Celebration 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Background Stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin: 40px auto;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .countdown-section h2 {
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 215, 0, 0.2));
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 100px;
+            transition: transform 0.3s ease;
+        }
+
+        .time-box:hover {
+            transform: scale(1.1);
+        }
+
+        .time-box .number {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: bold;
+            color: #ffd700;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+
+        .time-box .label {
+            font-size: 0.9rem;
+            color: #ddd;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .celebration-message {
+            display: none;
+            font-size: clamp(2rem, 4vw, 3rem);
+            animation: celebrate 2s infinite;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 999;
+            animation: confetti-fall 3s linear;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Wishes Section */
+        .wishes-section {
+            margin: 60px auto;
+            animation: fadeIn 2s ease;
+        }
+
+        .wishes-section h2 {
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 40px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wish-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .wish-card:hover::before {
+            left: 100%;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #ffd700;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .wish-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .wish-card h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .wish-card p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* Game Section */
+        .game-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin: 60px auto;
+            text-align: center;
+            animation: fadeIn 2.5s ease;
+        }
+
+        .game-section h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .game-info div {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .game-info span {
+            font-size: 1.5rem;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        #gameArea {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .firework {
+            position: absolute;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            animation: fireworkFloat 2s ease-in-out;
+        }
+
+        .firework:hover {
+            transform: scale(1.3);
+        }
+
+        @keyframes fireworkFloat {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(450px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .game-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffd700);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .game-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .game-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Goal Section */
+        .goal-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin: 60px auto;
+            text-align: center;
+            animation: fadeIn 3s ease;
+        }
+
+        .goal-section h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .goal-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .goal-input::placeholder {
+            color: #aaa;
+        }
+
+        .saved-goals {
+            margin-top: 30px;
+            text-align: left;
+            max-width: 500px;
+            margin: 30px auto 0;
+        }
+
+        .goal-item {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ffd700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .delete-btn {
+            background: #ff6b6b;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #ff5252;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #aaa;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .countdown {
+                gap: 10px;
+            }
+
+            .time-box {
+                min-width: 80px;
+                padding: 15px;
+            }
+
+            #gameArea {
+                height: 300px;
+            }
+
+            .wishes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Stars Background -->
+    <div class="stars" id="starsContainer"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>✨ New Year 2026 Celebration ✨</h1>
+            <p>Welcome to the most festive countdown!</p>
+        </header>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <h2>🎆 Countdown to New Year 🎆</h2>
+            <div class="countdown" id="countdown">
+                <div class="time-box">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-box">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-box">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-box">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+            <div class="celebration-message" id="celebrationMsg">
+                🎉 Happy New Year 2026! 🎉
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wishes-section">
+            <h2>💝 Heartfelt New Year Wishes 💝</h2>
+            <div class="wishes-grid">
+                <div class="wish-card">
+                    <span class="emoji">👨‍👩‍👧‍👦</span>
+                    <h3>To My Family</h3>
+                    <p>May this new year bring endless love, laughter, and cherished moments together. Thank you for being my foundation and strength. Here's to more beautiful memories!</p>
+                </div>
+                <div class="wish-card">
+                    <span class="emoji">👥</span>
+                    <h3>To My Friends</h3>
+                    <p>Cheers to another year of amazing adventures, late-night talks, and unforgettable memories! May our friendship grow stronger and our dreams come true together.</p>
+                </div>
+                <div class="wish-card">
+                    <span class="emoji">👨‍🏫</span>
+                    <h3>To My Teachers</h3>
+                    <p>Thank you for guiding me with wisdom and patience. Your dedication inspires me every day. Wishing you a year filled with joy, success, and the satisfaction of shaping bright futures.</p>
+                </div>
+                <div class="wish-card">
+                    <span class="emoji">🏃‍♂️</span>
+                    <h3>To My Coach</h3>
+                    <p>Your motivation pushes me beyond my limits! Thank you for believing in me and helping me become stronger. Here's to achieving new goals and breaking records together!</p>
+                </div>
+                <div class="wish-card">
+                    <span class="emoji">💕</span>
+                    <h3>To My Special One</h3>
+                    <p>You make every moment magical! May this new year bring us closer, fill our hearts with joy, and create countless beautiful memories. Love you to the moon and back!</p>
+                </div>
+                <div class="wish-card">
+                    <span class="emoji">🌟</span>
+                    <h3>To Myself</h3>
+                    <p>This year, I promise to be kinder to myself, chase my dreams fearlessly, and celebrate every small victory. Here's to growth, self-love, and becoming the best version of me!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Section -->
+        <section class="game-section">
+            <h2>🎮 Catch the Fireworks Game 🎆</h2>
+            <p>Click the fireworks before they disappear! How many can you catch?</p>
+            <div class="game-info">
+                <div>
+                    <div>Score</div>
+                    <span id="score">0</span>
+                </div>
+                <div>
+                    <div>Time</div>
+                    <span id="timer">30</span>
+                </div>
+            </div>
+            <div id="gameArea"></div>
+            <button class="game-btn" id="startBtn" onclick="startGame()">Start Game</button>
+            <button class="game-btn" id="restartBtn" onclick="restartGame()" style="display: none;">Play Again</button>
+        </section>
+
+        <!-- Goal Section -->
+        <section class="goal-section">
+            <h2>🎯 My 2026 Goals 🎯</h2>
+            <p>Write down your New Year resolutions and watch them come to life!</p>
+            <input type="text" class="goal-input" id="goalInput" placeholder="Enter your goal for 2026..." maxlength="100">
+            <button class="game-btn" onclick="addGoal()">Add Goal</button>
+            <div class="saved-goals" id="savedGoals"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with ❤️ for an amazing 2026!</p>
+            <p>&copy; 2026 New Year Celebration</p>
+        </footer>
+    </div>
+
+    <script>
+        // ==================== STARS BACKGROUND ====================
+        function createStars() {
+            const starsContainer = document.getElementById('starsContainer');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        createStars();
+
+        // ==================== COUNTDOWN TIMER ====================
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            // Calculate next New Year (if we're past Jan 1, use next year)
+            const nextYear = now.getMonth() === 0 && now.getDate() === 1 ? currentYear : currentYear + 1;
+            const newYear = new Date(nextYear, 0, 1, 0, 0, 0);
+            
+            const diff = newYear - now;
+
+            if (diff <= 0) {
+                // New Year has arrived!
+                document.getElementById('countdown').style.display = 'none';
+                document.getElementById('celebrationMsg').style.display = 'block';
+                createConfetti();
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Animate number change
+            updateWithAnimation('days', days);
+            updateWithAnimation('hours', hours);
+            updateWithAnimation('minutes', minutes);
+            updateWithAnimation('seconds', seconds);
+        }
+
+        function updateWithAnimation(id, value) {
+            const element = document.getElementById(id);
+            const formattedValue = value.toString().padStart(2, '0');
+            
+            if (element.textContent !== formattedValue) {
+                element.style.transform = 'scale(1.2)';
+                element.textContent = formattedValue;
+                setTimeout(() => {
+                    element.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ==================== CONFETTI EFFECT ====================
+        function createConfetti() {
+            const colors = ['#ffd700', '#ff6b6b', '#4ecdc4', '#45b7d1', '#f7b731'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        // ==================== GAME LOGIC ====================
+        let gameActive = false;
+        let score = 0;
+        let timeLeft = 30;
+        let gameInterval;
+        let timerInterval;
+        let fireworkInterval;
+
+        function startGame() {
+            if (gameActive) return;
+            
+            gameActive = true;
+            score = 0;
+            timeLeft = 30;
+            document.getElementById('score').textContent = score;
+            document.getElementById('timer').textContent = timeLeft;
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('gameArea').innerHTML = '';
+            
+            // Start timer
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+            
+            // Spawn fireworks
+            fireworkInterval = setInterval(spawnFirework, 800);
+        }
+
+        function spawnFirework() {
+            if (!gameActive) return;
+            
+            const gameArea = document.getElementById('gameArea');
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.textContent = '🎆';
+            firework.style.left = Math.random() * (gameArea.offsetWidth - 50) + 'px';
+            firework.style.top = '-50px';
+            
+            firework.addEventListener('click', function() {
+                score++;
+                document.getElementById('score').textContent = score;
+                this.textContent = '✨';
+                setTimeout(() => this.remove(), 100);
+            });
+            
+            gameArea.appendChild(firework);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (firework.parentNode) {
+                    firework.remove();
+                }
+            }, 2000);
+        }
+
+        function endGame() {
+            gameActive = false;
+            clearInterval(timerInterval);
+            clearInterval(fireworkInterval);
+            document.getElementById('startBtn').style.display = 'none';
+            document.getElementById('restartBtn').style.display = 'inline-block';
+            
+            const gameArea = document.getElementById('gameArea');
+            gameArea.innerHTML = `<div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 2rem; color: #ffd700; flex-direction: column;">
+                <div>🎉 Game Over! 🎉</div>
+                <div style="font-size: 1.5rem; margin-top: 20px;">Final Score: ${score}</div>
+            </div>`;
+        }
+
+        function restartGame() {
+            document.getElementById('restartBtn').style.display = 'none';
+            document.getElementById('startBtn').style.display = 'inline-block';
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('gameArea').innerHTML = '';
+        }
+
+        // ==================== GOAL TRACKER ====================
+        let goals = JSON.parse(localStorage.getItem('newYearGoals2026')) || [];
+
+        function displayGoals() {
+            const container = document.getElementById('savedGoals');
+            container.innerHTML = '';
+            
+            if (goals.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #aaa; margin-top: 20px;">No goals yet. Start adding your 2026 resolutions!</p>';
+                return;
+            }
+            
+            goals.forEach((goal, index) => {
+                const goalDiv = document.createElement('div');
+                goalDiv.className = 'goal-item';
+                goalDiv.innerHTML = `
+                    <span>✨ ${goal}</span>
+                    <button class="delete-btn" onclick="deleteGoal(${index})">Delete</button>
+                `;
+                container.appendChild(goalDiv);
+            });
+        }
+
+        function addGoal() {
+            const input = document.getElementById('goalInput');
+            const goalText = input.value.trim();
+            
+            if (goalText === '') {
+                alert('Please enter a goal!');
+                return;
+            }
+            
+            goals.push(goalText);
+            localStorage.setItem('newYearGoals2026', JSON.stringify(goals));
+            input.value = '';
+            displayGoals();
+        }
+
+        function deleteGoal(index) {
+            goals.splice(index, 1);
+            localStorage.setItem('newYearGoals2026', JSON.stringify(goals));
+            displayGoals();
+        }
+
+        // Allow Enter key to add goal
+        document.getElementById('goalInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addGoal();
+            }
+        });
+
+        // Display goals on load
+        displayGoals();
+
+        // ==================== SMOOTH SCROLL ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
